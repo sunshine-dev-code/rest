@@ -18,7 +18,6 @@ type PageParams struct {
 	Page    int          `json:"page" form:"page"`         //页码
 	Size    int          `json:"size" form:"size"`         //单页尺寸
 	OrderBy string       `json:"order_by" form:"order_by"` //排序
-	Desc    bool         `json:"desc" form:"order_by"`     //降序，默认为false升序
 	Type    PageDataType `json:"type" form:"type"`         //数据类型
 }
 
