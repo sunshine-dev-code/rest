@@ -208,6 +208,7 @@ func GetSearchPageContent[T any](tx *gorm.DB,
 
 	// 处理排序
 	if searchPageParams.OrderBy != "" {
+		searchPageParams.OrderBy=strings.ReplaceAll(searchPageParams.OrderBy, "+", " ")
 		tx = tx.Order(searchPageParams.OrderBy)
 	}
 
