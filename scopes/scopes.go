@@ -1,4 +1,4 @@
-package db
+package scopes
 
 import (
 	"errors"
@@ -7,21 +7,8 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB *gorm.DB
 
-func InitDB(db *gorm.DB) error {
-	if DB != nil {
-		return errors.New("db already set")
-	}
-	DB = db
-	return nil
-}
 
-type ScopeFunc = func(db *gorm.DB) *gorm.DB
-type Condition struct {
-	Condition string
-	Value     any
-}
 
 func Joins(query string, args ...any) ScopeFunc {
 	return func(db *gorm.DB) *gorm.DB {
@@ -66,6 +53,12 @@ func Preload(query string, args ...any) ScopeFunc {
 	return func(db *gorm.DB) *gorm.DB {
 		return db.Preload(query, args...)
 	}
+}
+
+
+type Condition struct {
+	Condition string
+	Value     any
 }
 
 func PreloadWithSearchCondition(query string, searchCondition *Condition) ScopeFunc {
