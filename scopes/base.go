@@ -1,9 +1,6 @@
 package scopes
 
 import (
-	"errors"
-	"strings"
-
 	"gorm.io/gorm"
 )
 
