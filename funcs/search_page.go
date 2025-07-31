@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/sunshine-dev-code/rest/db"
+	"github.com/sunshine-dev-code/rest/scopes"
 	"github.com/sunshine-dev-code/rest/errs"
 
 	"github.com/gin-gonic/gin"

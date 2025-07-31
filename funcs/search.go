@@ -1,7 +1,7 @@
 package funcs
 
 import (
-	"github.com/sunshine-dev-code/rest/db"
+	"github.com/sunshine-dev-code/rest/scopes"
 	"gorm.io/gorm"
 )
 
