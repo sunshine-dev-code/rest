@@ -1,7 +1,7 @@
 package scopes
 
 import (
-	"github.com/sunshine-dev-code/rest/db"
+	"strings"
 	"gorm.io/gorm"
 )
 
