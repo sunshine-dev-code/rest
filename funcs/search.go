@@ -9,7 +9,7 @@ type SearchParams = map[string]string
 
 func GetSearchContent[T any](tx *gorm.DB,
 	searchPageParams *SearchPageParams,
-	scopes ...db.ScopeFunc) (total int64, result *[]T, err error) {
+	scopes ...scopes.ScopeFunc) (total int64, result *[]T, err error) {
 	var (
 		models = []T{}
 	)
@@ -46,7 +46,7 @@ func GetSearchContent[T any](tx *gorm.DB,
 
 func GetSearchDataWithTransaction[T any](tx *gorm.DB,
 	searchPageParams *SearchPageParams,
-	scopes ...db.ScopeFunc) (*PageResult, error) {
+	scopes ...scopes.ScopeFunc) (*PageResult, error) {
 	var (
 		models *[]T
 		total  int64
@@ -59,7 +59,7 @@ func GetSearchDataWithTransaction[T any](tx *gorm.DB,
 	return result, err
 }
 
-func GetSearchData[T any](searchPageParams *SearchPageParams, scopes ...db.ScopeFunc) (*PageResult, error) {
+func GetSearchData[T any](searchPageParams *SearchPageParams, scopes ...scopes.ScopeFunc) (*PageResult, error) {
 	var (
 		result *PageResult
 		err    error

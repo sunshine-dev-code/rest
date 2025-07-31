@@ -188,7 +188,7 @@ func NewSearchPageParamsFromContext(c *gin.Context) (*SearchPageParams, error) {
 
 func GetSearchPageContent[T any](tx *gorm.DB,
 	searchPageParams *SearchPageParams,
-	scopes ...db.ScopeFunc) (total int64, result *[]T, err error) {
+	scopes ...scopes.ScopeFunc) (total int64, result *[]T, err error) {
 	var (
 		models = []T{}
 	)
@@ -226,7 +226,7 @@ func GetSearchPageContent[T any](tx *gorm.DB,
 
 func GetSearchPageDataWithTransaction[T any](tx *gorm.DB,
 	searchPageParams *SearchPageParams,
-	scopes ...db.ScopeFunc) (*PageResult, error) {
+	scopes ...scopes.ScopeFunc) (*PageResult, error) {
 	var (
 		models *[]T
 		total  int64
@@ -239,7 +239,7 @@ func GetSearchPageDataWithTransaction[T any](tx *gorm.DB,
 	return result, err
 }
 
-func GetSearchPageData[T any](searchPageParams *SearchPageParams, scopes ...db.ScopeFunc) (*PageResult, error) {
+func GetSearchPageData[T any](searchPageParams *SearchPageParams, scopes ...scopes.ScopeFunc) (*PageResult, error) {
 	var (
 		result *PageResult
 		err    error

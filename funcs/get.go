@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func GetDataWithTransaction[T any](tx *gorm.DB, scopes ...db.ScopeFunc) (*T, error) {
+func GetDataWithTransaction[T any](tx *gorm.DB, scopes ...scopes.ScopeFunc) (*T, error) {
 	var (
 		result T
 		err    error
@@ -20,7 +20,7 @@ func GetDataWithTransaction[T any](tx *gorm.DB, scopes ...db.ScopeFunc) (*T, err
 	return &result, err
 }
 
-func GetData[T any](scopes ...db.ScopeFunc) (*T, error) {
+func GetData[T any](scopes ...scopes.ScopeFunc) (*T, error) {
 	var (
 		result *T
 		err    error
@@ -36,7 +36,7 @@ func GetData[T any](scopes ...db.ScopeFunc) (*T, error) {
 	return result, err
 }
 
-func GetBatchDataWithTransaction[T any](tx *gorm.DB, scopes ...db.ScopeFunc) (*[]T, error) {
+func GetBatchDataWithTransaction[T any](tx *gorm.DB, scopes ...scopes.ScopeFunc) (*[]T, error) {
 	var (
 		result []T
 		err    error
@@ -50,7 +50,7 @@ func GetBatchDataWithTransaction[T any](tx *gorm.DB, scopes ...db.ScopeFunc) (*[
 	return &result, err
 }
 
-func GetBatchData[T any](scopes ...db.ScopeFunc) (*[]T, error) {
+func GetBatchData[T any](scopes ...scopes.ScopeFunc) (*[]T, error) {
 	var (
 		result *[]T
 		err    error

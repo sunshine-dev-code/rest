@@ -1,4 +1,4 @@
-package scopes
+package db
 
 import (
 	"gorm.io/gorm"
@@ -13,5 +13,3 @@ func InitDB(db *gorm.DB) error {
 	DB = db
 	return nil
 }
-
-type ScopeFunc = func(db *gorm.DB) *gorm.DB

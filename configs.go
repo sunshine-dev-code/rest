@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"github.com/sunshine-dev-code/rest/scopes"
+	"github.com/sunshine-dev-code/rest/db"
 	"gorm.io/gorm"
 )
 

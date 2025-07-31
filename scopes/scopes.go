@@ -1,11 +1,12 @@
 package scopes
 
 import (
+	"github.com/sunshine-dev-code/rest/db"
 	"gorm.io/gorm"
 )
 
 
-
+type ScopeFunc = func(db *gorm.DB) *gorm.DB
 
 func Joins(query string, args ...any) ScopeFunc {
 	return func(db *gorm.DB) *gorm.DB {
